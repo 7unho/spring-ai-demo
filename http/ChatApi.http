@@ -1,0 +1,8 @@
+### 1. /api/ai/chat
+
+GET localhost:8080/api/ai/ask?question=최신 Spring AI의 특징 3가지를 알려줘
+
+
+### 1. /api/ai/stream
+
+GET localhost:8080/api/ai/stream?question=최신 Spring AI의 특징 3가지를 알려줘
