@@ -1,1 +1,8 @@
-spring.application.name=spring-ai-demo
+spring:
+  application:
+    name: spring-ai-demo
+  ai:
+    openai:
+        api-key: ${OPENAI_API_KEY}
+        chat:
+          model: gpt-4o-mini
