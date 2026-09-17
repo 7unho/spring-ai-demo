@@ -1,0 +1,8 @@
+### 1. /question
+
+POST localhost:8080/ask
+Content-Type: application/json
+
+{
+  "question": "최신 Spring AI의 특징을 3가지 알려줘"
+}
