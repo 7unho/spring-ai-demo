@@ -1,0 +1,8 @@
+### 1. /api/ai/chat/my-first
+
+POST localhost:8080/api/chat/my-first
+Content-Type: application/json
+
+{
+  "message": "내 이름이 뭐라고?"
+}
