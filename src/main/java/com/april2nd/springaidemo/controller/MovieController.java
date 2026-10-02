@@ -30,12 +30,12 @@ public class MovieController {
 
     @GetMapping("/raw-json-trap")
     public String rawJsonTrap(@RequestParam(defaultValue = "오디세이") String title) {
-        return "";
+        return movieService.askRawJsonTrap(title);
     }
 
     @GetMapping("/raw-json-fixed")
     public String rawJsonFixed(@RequestParam(defaultValue = "오디세이") String title) {
-        return "";
+        return movieService.askRawFixed(title);
     }
 
     @GetMapping("/format")

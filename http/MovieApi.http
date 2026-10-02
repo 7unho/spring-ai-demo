@@ -4,4 +4,12 @@ GET localhost:8080/api/movies/one
 
 ### 2. /api/movies/by-director
 
-GET localhost:8080/api/movies/by-director?count=5
+GET localhost:8080/api/movies/by-director?count=5&director=김준호
+
+### 2. /api/movies/raw-json-trap
+
+GET localhost:8080/api/movies/raw-json-trap
+
+### 2. /api/movies/raw-json-fixed
+
+GET localhost:8080/api/movies/raw-json-fixed
