@@ -1,0 +1,7 @@
+### 1. /api/movies/one
+
+GET localhost:8080/api/movies/one
+
+### 2. /api/movies/by-director
+
+GET localhost:8080/api/movies/by-director?count=5
