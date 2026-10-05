@@ -2,7 +2,6 @@ package com.april2nd.springaidemo.service.prompt;
 
 import com.april2nd.springaidemo.dto.BeforeAfterResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
@@ -49,5 +48,20 @@ public class PromptQualityService {
                 .system("당신은 Spring 전문가입니다. 코드 예시와 함께 한국어로 답하세요.")
                 .user(question)
                 .call().content();
+    }
+
+    public BeforeAfterResponse roleSeparationAntiPattern(String question) {
+        // 사용자 입력과 시스템 메시지가 혼합된 경우
+        String mixed = "당신은 Spring 전문가입니다. 코드 예시와 함께 한국어로 답하세요. \n" + question;
+        var bad = promptRunner.userWithTokens(mixed);
+
+        // 잘된 케이스
+        var good = promptRunner.systemAndUserWithTokens("당신은 Spring 전문가입니다. 코드 예시와 함께 한국어로 답하세요.", question);
+
+        return new BeforeAfterResponse(
+                "역할 구조( System/User/Assistant )",
+                "안티패턴 - 하나의 프롬프트로 전달", mixed, bad.answer(), bad.totalTokens(),
+                "프롬프트 분리 - System / User", "[System] Spring 전문가 규칙, [User] " + question, good.answer(), good.totalTokens()
+        );
     }
 }

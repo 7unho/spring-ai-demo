@@ -56,7 +56,12 @@ public class PromptRunner {
     }
 
     public Result systemAndUserWithTokens(String systemText, String userText) {
-        return null;
+        ChatResponse response = chatClient.prompt()
+                .system(systemText)
+                .user(userText)
+                .call().chatResponse();
+
+        return new Result(text(response), totalTokens(response));
     }
     /*
      * ChatResponse는 텍스트 외에 토큰사용량, 정상종료 여부, 메타데이터 등의 정보도 표시

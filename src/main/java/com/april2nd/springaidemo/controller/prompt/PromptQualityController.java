@@ -29,4 +29,9 @@ public class PromptQualityController {
                 "answer", promptQualityService.roleSeparated(question)
         );
     }
+
+    @GetMapping("/role/anti-pattern")
+    public BeforeAfterResponse antiPattern(@RequestParam(defaultValue = "@Transactional의 전파 속성을 설명해주세요")String question) {
+        return promptQualityService.roleSeparationAntiPattern(question);
+    }
 }
