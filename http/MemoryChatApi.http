@@ -4,5 +4,9 @@ POST localhost:8080/api/chat/my-first
 Content-Type: application/json
 
 {
-  "message": "내 이름이 뭐라고?"
+  "message": "클로드가 뭐야?"
 }
+
+
+### 2. /api/chat/{conversationId}/stream
+GET localhost:8080/api/chat/alpha/stream?message=클로드가 뭐야?

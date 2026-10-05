@@ -26,3 +26,24 @@
   - 직접 Json을 요청하는 경우 프로프트에 'in JSON format without markdown tags'와 같이
     마크다운 문법을 제외한 JSON 형태를 응답하도록 요청
   - 가능하면 entity()를 사용하자
+
+# ✨ Jev - System One 모델
+> Typesafe AI
+- 입력: 상황 + 보기가 정해진 지물
+- 출력: 보기 중 하나 + 보정된 확률
+- 공식 SDK는 python, typescript 자바는 REST로 직접 호출
+
+## 3가지 질문 타입
+> 질문 = type + instructions ( + criteria )
+
+### choice ( 객관식 ) 
+- 2~255개 보기 중 하나를 선택
+- 반환: choice, probabilities, confidence
+
+### score
+- 순서가 있는 척도(2 ~ 10단계)에 배치
+- 반환: score(소수 가능), probabilities, confidence
+
+### noul ( 명제 )
+- 예 / 아니오 명제의 확률 ( 0 ~ 1 )
+- 반환: noul
