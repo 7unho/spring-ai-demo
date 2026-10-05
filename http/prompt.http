@@ -1,0 +1,7 @@
+### 1. /api/s05/quality/summary
+
+GET localhost:8080/api/s05/quality/summary
+
+### 1. /api/s05/role/separated
+
+GET localhost:8080/api/s05/role/separated

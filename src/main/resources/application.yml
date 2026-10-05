@@ -7,3 +7,6 @@ spring:
         chat:
           model: gpt-4o-mini
           max-tokens: 500
+logging:
+  level:
+    com.april2nd.springaidemo: DEBUG

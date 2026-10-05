@@ -6,6 +6,7 @@ import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.MessageWindowChatMemory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class ChatConfig {
@@ -14,6 +15,12 @@ public class ChatConfig {
         return MessageWindowChatMemory.builder()
                 .maxMessages(10)
                 .build();
+    }
+
+    @Bean
+    @Primary
+    public ChatClient chatClient(ChatClient.Builder builder) {
+        return builder.build();
     }
 
     @Bean
