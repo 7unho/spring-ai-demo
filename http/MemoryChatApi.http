@@ -1,0 +1,12 @@
+### 1. /api/ai/chat/my-first
+
+POST localhost:8080/api/chat/my-first
+Content-Type: application/json
+
+{
+  "message": "클로드가 뭐야?"
+}
+
+
+### 2. /api/chat/{conversationId}/stream
+GET localhost:8080/api/chat/alpha/stream?message=클로드가 뭐야?
