@@ -1,6 +1,6 @@
 ### 1. /api/movie/jev
 
-GET localhost:8080/api/movies/jev
+POST localhost:8080/api/movies/jev
 Content-Type: application/json
 
 {

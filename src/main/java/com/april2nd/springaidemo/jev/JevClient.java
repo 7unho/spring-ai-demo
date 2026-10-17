@@ -20,7 +20,7 @@ public class JevClient {
     }
 
     public boolean enabled() {
-        return props.enabled();
+        return Boolean.TRUE.equals(props.enabled());
     }
 
     public Map<String, Decision> decide(Object state, Map<String, Object> questions) {
@@ -49,7 +49,7 @@ public class JevClient {
             String recommend,
             Double noul,
             Double confidence,
-            Map<String, Double> Probabilities) {
+            Map<String, Double> probabilities) {
 
     }
 }

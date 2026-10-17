@@ -1,7 +1,6 @@
 package com.april2nd.springaidemo.service;
 
 import com.april2nd.springaidemo.jev.JevClient;
-import com.april2nd.springaidemo.jev.JevProperties;
 import com.april2nd.springaidemo.model.Genre;
 import com.april2nd.springaidemo.model.Movie;
 import com.april2nd.springaidemo.model.ReviewAnalysis;
@@ -82,6 +81,10 @@ public class MovieService {
     }
 
     public ReviewAnalysis analyzeReviewWithJev(String review) {
+        if (!jevClient.enabled()) {
+            throw new IllegalStateException("Jev가 비활성화되어 있습니다. (JEV_ENABLED=true 필요)");
+        }
+
         Map<String, String> genreCriteria = new LinkedHashMap<>();
         for (Genre g : Genre.values()) {
             genreCriteria.put(g.name(), g.description());
@@ -107,13 +110,23 @@ public class MovieService {
                 )
         );
 
-        JevClient.Decision genre = answers.get("genre");
+        JevClient.Decision genre = requireAnswer(answers, "genre");
+        JevClient.Decision sentiment = requireAnswer(answers, "sentiment");
+        JevClient.Decision spoiler = requireAnswer(answers, "spoiler");
 
         return new ReviewAnalysis(
                 Genre.valueOf(genre.choice()),
-                answers.get("sentiment").score(),
-                answers.get("spoiler").noul() >= 0.5,
+                sentiment.score(),
+                spoiler.noul() >= 0.5,
                 genre.confidence()
         );
+    }
+
+    private JevClient.Decision requireAnswer(Map<String, JevClient.Decision> answers, String key) {
+        JevClient.Decision decision = answers == null ? null : answers.get(key);
+        if (decision == null) {
+            throw new IllegalStateException("Jev 응답에 '" + key + "' 항목이 없습니다.");
+        }
+        return decision;
     }
 }

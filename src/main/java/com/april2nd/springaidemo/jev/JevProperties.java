@@ -9,7 +9,4 @@ public record JevProperties(
         String baseUrl,
         String model
 ) {
-    public Boolean enabled() {
-        return this.enabled();
-    }
 }
