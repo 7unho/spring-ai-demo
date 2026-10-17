@@ -1,12 +1,10 @@
 package com.april2nd.springaidemo.controller;
 
 import com.april2nd.springaidemo.model.Movie;
+import com.april2nd.springaidemo.model.ReviewAnalysis;
 import com.april2nd.springaidemo.service.MovieService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -43,4 +41,8 @@ public class MovieController {
         return movieService.describeFormat();
     }
 
+    @GetMapping("/jev")
+    public ReviewAnalysis reviewWithJev(@RequestBody String review) {
+        return movieService.analyzeReviewWithJev(review);
+    }
 }

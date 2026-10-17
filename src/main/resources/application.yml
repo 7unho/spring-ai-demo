@@ -10,3 +10,9 @@ spring:
 logging:
   level:
     com.april2nd.springaidemo: DEBUG
+
+jev:
+  enabled: ${JEV_ENABLED:false}
+  api-key: ${TYPESAFE_API_KEY:}
+  base-url: https://api.typesafe.ai
+  model: jev-1.13.0

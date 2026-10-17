@@ -1,0 +1,8 @@
+### 1. /api/movie/jev
+
+GET localhost:8080/api/movies/jev
+Content-Type: application/json
+
+{
+  "review": "무서워서 벌벌 떨면서봄"
+}
