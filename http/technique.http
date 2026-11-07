@@ -1,0 +1,8 @@
+### 1. /api/s05/technique/zero-shot
+GET localhost:8080/api/s05/technique/zero-shot
+
+### 2. /api/s05/technique/few-shot
+GET localhost:8080/api/s05/technique/few-shot
+
+### 3. /api/s05/technique/shot/compare
+GET localhost:8080/api/s05/technique/shot/compare
