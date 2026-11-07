@@ -2,9 +2,12 @@ package com.april2nd.springaidemo.service.prompt;
 
 import com.april2nd.springaidemo.dto.BeforeAfterResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ai.chat.prompt.PromptTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -63,5 +66,13 @@ public class PromptQualityService {
                 "안티패턴 - 하나의 프롬프트로 전달", mixed, bad.answer(), bad.totalTokens(),
                 "프롬프트 분리 - System / User", "[System] Spring 전문가 규칙, [User] " + question, good.answer(), good.totalTokens()
         );
+    }
+
+    public String customerCenterBot(String company, String question) {
+        PromptTemplate template = new PromptTemplate(customerCenterResource);
+
+        String systemText = template.render(Map.of("company", company));
+
+        return promptRunner.systemAndUser(systemText, question);
     }
 }

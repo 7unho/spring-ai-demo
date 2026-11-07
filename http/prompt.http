@@ -9,3 +9,35 @@ GET localhost:8080/api/s05/role/separated
 ### 3. /api/s05/role/anti-pattern
 
 GET localhost:8080/api/s05/role/anti-pattern
+
+### 4. /api/s05/system-prompt/customer-center
+
+GET localhost:8080/api/s05/system-prompt/customer-center
+
+### 5. /api/s05/system-prompt/out-of-policy
+
+GET localhost:8080/api/s05/system-prompt/out-of-policy
+
+### 6. /api/s05/template/travel
+
+GET localhost:8080/api/s05/template/travel
+
+### 7. /api/s05/template/travel/concat
+
+GET localhost:8080/api/s05/template/travel/concat
+
+### 8. /api/s05/template/travel/custom
+
+GET localhost:8080/api/s05/template/travel/custom
+
+### 9. /api/s05/template/prompt-file
+
+GET localhost:8080/api/s05/template/prompt-file
+
+### 10. /api/s05/template/chat
+
+GET localhost:8080/api/s05/template/chat
+
+### 11. /api/s05/template/chat/raw
+
+GET localhost:8080/api/s05/template/chat/raw
