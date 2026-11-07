@@ -34,4 +34,26 @@ public class PromptQualityController {
     public BeforeAfterResponse antiPattern(@RequestParam(defaultValue = "@Transactional의 전파 속성을 설명해주세요")String question) {
         return promptQualityService.roleSeparationAntiPattern(question);
     }
+
+    @GetMapping("/system-prompt/customer-center")
+    public Map<String, String> customerCenter(
+            @RequestParam(defaultValue = "00쇼핑") String company,
+            @RequestParam(defaultValue = "주문한 상품을 개봉했는데 환불이 되나요?") String question) {
+        return Map.of(
+                "company", company,
+                "question", question,
+                "answer", promptQualityService.customerCenterBot(company, question)
+        );
+    }
+
+    @GetMapping("/system-prompt/out-of-policy")
+    public Map<String, String> outOfPolicy(
+            @RequestParam(defaultValue = "00쇼핑") String company,
+            @RequestParam(defaultValue = "이 회사 주가 전망이 어떤가요?") String question) {
+        return Map.of(
+                "question", question,
+                "answer", promptQualityService.customerCenterBot(company, question),
+                "기대 동작", "'상담원 연결을 도와드리겠습니다'로 답해야 정상"
+        );
+    }
 }
