@@ -24,7 +24,7 @@ public class PromptTemplateController {
     public Map<String, String> travelConcat(
             @RequestParam(defaultValue = "여행 전문가") String role,
             @RequestParam(defaultValue = "번호 목록 3개") String format,
-            @RequestParam(defaultValue = "가을게 가기 좋은 국내 여행지를 추천해 주세요") String question) {
+            @RequestParam(defaultValue = "가을에 가기 좋은 국내 여행지를 추천해 주세요") String question) {
         return Map.of("answer", travelService.recommendByConcat(role, format, question));
     }
 
